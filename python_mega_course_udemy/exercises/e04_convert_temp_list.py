@@ -1,4 +1,4 @@
-from exercises.e03_convert_temp import celsius_to_f
+from python_mega_course_udemy.exercises.e03_convert_temp import celsius_to_f
 
 temperatures = [10, -20, -289, 100]
 
