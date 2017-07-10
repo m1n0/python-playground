@@ -12,7 +12,7 @@ def get_volcano_color(elevation):
 
 
 def create_map():
-    data = pandas.read_csv('python_mega_course_udemy/data/07_volcanoes.txt')
+    data = pandas.read_csv('python_mega_course_udemy/applications/a02_web_maps/data/07_volcanoes.txt')
 
     map = folium.Map(location=[38.58, -99.09], tiles='Mapbox Bright', zoom_start=6)
     volcano_feature_group = folium.FeatureGroup(name='Volcanoes')
@@ -30,13 +30,13 @@ def create_map():
         )
 
     population_feature_group = folium.FeatureGroup(name='Population')
-    population_feature_group.add_child(folium.GeoJson(data=open('python_mega_course_udemy/data/07_world.json', 'r', encoding='utf-8-sig'),
+    population_feature_group.add_child(folium.GeoJson(data=open('python_mega_course_udemy/applications/a02_web_maps/data/07_world.json', 'r', encoding='utf-8-sig'),
                                            style_function=country_color_fill))
 
     map.add_child(volcano_feature_group)
     map.add_child(population_feature_group)
     map.add_child(folium.LayerControl())
-    map.save('python_mega_course_udemy/data/07_volcanoes.html')
+    map.save('python_mega_course_udemy/applications/a02_web_maps/data/07_volcanoes.html')
 
 
 def country_color_fill(x):
