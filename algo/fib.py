@@ -15,13 +15,19 @@ def fib_memoisation(n, lookup):
 
     return lookup[n]
 
+def fib_tabulation(n):
+    results = [1, 1]
+
+    for i in range(2, n):
+        results.append(results[i - 1] + results[i - 2])
+
+    return results[-1]
 
 if __name__ == '__main__':
     degree = 42
     delimiter = '----------'
     print(f'Comparing different approaches to computing Fibonacci series.')
     print(f'Computing the {degree}. term:')
-
 
     print('\nRecursive:')
     print(delimiter)
@@ -34,5 +40,12 @@ if __name__ == '__main__':
     print(delimiter)
     start = timer()
     print(fib_memoisation(degree, [None]*100))
+    end = timer()
+    print(end - start)
+
+    print('\nTabulation:')
+    print(delimiter)
+    start = timer()
+    print(fib_tabulation(degree))
     end = timer()
     print(end - start)
